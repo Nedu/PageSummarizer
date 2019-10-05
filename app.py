@@ -21,12 +21,13 @@ def summarize():
         try:
             if request.method == 'POST':
                 article = request.json['article']
-              # article = json.load(article)
                 summary = model.summarize(article)
 
                 return jsonify(summary=summary)
-            elif request.method == 'GET':
-                return 'Coming soon'
+            return {'data': """Welcome to the Page Summarizer API.
+            To summarize pls make a POST request to the /api/summarize endpoint
+            using the format {"article": "some article content that needs
+            summarizing"}"""}
         except Exception:
             return jsonify({'trace': traceback.format_exc()})
     else:
