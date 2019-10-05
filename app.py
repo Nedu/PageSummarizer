@@ -5,8 +5,6 @@ import pickle as p
 import traceback
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import json
-
 # loading the model
 summarizer = 'modelfile.pkl'
 model = p.load(open(summarizer, 'rb'))
